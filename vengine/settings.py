@@ -25,7 +25,9 @@ SECRET_KEY = '#+3c)8$i12!ze#=%42z&h!^$bhwdq+d@z$9**=pba7a3orky@2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api.v.noinfinity.top',
+]
 
 
 # Application definition
