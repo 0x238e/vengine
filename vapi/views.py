@@ -14,72 +14,69 @@ def mockEventList(request):
   res['Content-Type'] = 'application/json'
   res['Access-Control-Allow-Origin'] = 'http://v.noinfinity.top'
   res.content = '''
-[
-  {
+[{
+  "type": "update",
+  "event": {
+    "id": "9a7590ad-8d13-40de-9b1b-1714d0f84328",
     "type": {
-      "level": "is-danger",
-      "name": "超车"
+      "name": "超车",
+      "level": "is-danger"
     },
-    "id": "0x123456789dead1",
-    "status": "",
-    "expire": 1555767918091,
+    "from": "0xcdfead4dfadbc714ced0d4b1eddebbb4c18d99e4",
+    "to": "0x02275aEdd72D6406D20A21De9837737dc8501dC2",
+    "expire": 1555826003837,
+    "price": 197,
+    "userlevel": 6,
     "data": {
-      "gps": [123, 234],
-      "s": "guguug"
+      "gps": ["-74.7014", "98.8020"]
     },
-    "from": "0xasd",
-    "to": "0xasds",
-    "price": 123
-  },
-  {
-    "type": {
-      "level": "is-primary",
-      "name": "超车"
-    },
-    "id": "0x123456789dead2",
-    "status": "",
-    "expire": 123,
-    "data": {
-      "gps": [23, 234],
-      "s": "guguug"
-    }
-  },
-  {
-    "type": {
-      "level": "is-info",
-      "name": "超车"
-    },
-    "id": "0x123456789dead3",
-    "status": "accept",
     "decider": "car",
-    "expire": 123,
-    "data": {
-      "gps": [123, 2],
-      "s": "guguug"
-    }
-  },
-  {
-    "type": {
-      "level": "is-danger",
-      "name": "超车"
-    },
-    "id": "0x123456789dead4",
-    "status": "reject",
-    "decider": "human",
-    "expire": 123,
-    "from": "asd",
-    "to": "bsd",
-    "data": {
-      "gps": [125, 234],
-      "s": "guguug"
-    }
+    "status": "accept"
   }
-]
+}, {
+  "type": "update",
+  "event": {
+    "id": "c8108bfa-df01-4736-9264-19d1ad937746",
+    "type": {
+      "name": "换道",
+      "level": "is-warning"
+    },
+    "from": "0xbcf808ebb924b3a34563d054d5ed0b4b38d1b686",
+    "to": "0x02275aEdd72D6406D20A21De9837737dc8501dC2",
+    "expire": 1555826028641,
+    "price": 306,
+    "userlevel": 7,
+    "data": {
+      "gps": ["-35.0395", "-80.9195"]
+    },
+    "decider": "car",
+    "status": "reject"
+  }
+}, {
+  "type": "update",
+  "event": {
+    "id": "96df607b-e94c-47d4-b790-a2099be7ff8f",
+    "type": {
+      "name": "换道",
+      "level": "is-warning"
+    },
+    "from": "0xdc9bc50a3d6fa25cf10453b3b7e2d09613c0b7db",
+    "to": "0x02275aEdd72D6406D20A21De9837737dc8501dC2",
+    "expire": 1555826029015,
+    "price": 457,
+    "userlevel": 0,
+    "data": {
+      "gps": ["-3.9431", "-87.3783"]
+    },
+    "decider": "car",
+    "status": "reject"
+  }
+}]
 '''
   return res
 
 def eventList(request):
-  if  request.method == 'POST':
+  if request.method == 'POST':
     datas = json.loads(request.body)
     for data in datas:
       if cache.get(data['event']['to']):
