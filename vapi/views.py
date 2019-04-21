@@ -12,7 +12,7 @@ channel_layer = get_channel_layer()
 def mockEventList(request):
   res = HttpResponse()
   res['Content-Type'] = 'application/json'
-  res['Access-Control-Allow-Origin'] = 'http://v.noinfinity.top'
+  res['Access-Control-Allow-Origin'] = 'http://127.0.0.1:8081' #'http://v.noinfinity.top'
   res.content = '''
 [
   {
@@ -22,7 +22,14 @@ def mockEventList(request):
     },
     "id": "0x123456789dead1",
     "status": "",
-    "expire": 1555767918091
+    "expire": 1555767918091,
+    "data": {
+      "gps": [123, 234],
+      "s": "guguug"
+    },
+    "from": "0xasd",
+    "to": "0xasds",
+    "price": 123
   },
   {
     "type": {
@@ -33,7 +40,8 @@ def mockEventList(request):
     "status": "",
     "expire": 123,
     "data": {
-      "备注": "你好"
+      "gps": [23, 234],
+      "s": "guguug"
     }
   },
   {
@@ -44,7 +52,11 @@ def mockEventList(request):
     "id": "0x123456789dead3",
     "status": "accept",
     "decider": "car",
-    "expire": 123
+    "expire": 123,
+    "data": {
+      "gps": [123, 2],
+      "s": "guguug"
+    }
   },
   {
     "type": {
@@ -56,7 +68,11 @@ def mockEventList(request):
     "decider": "human",
     "expire": 123,
     "from": "asd",
-    "to": "bsd"
+    "to": "bsd",
+    "data": {
+      "gps": [125, 234],
+      "s": "guguug"
+    }
   }
 ]
 '''

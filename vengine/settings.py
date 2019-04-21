@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'api.v.noinfinity.top',
+    '127.0.0.1',
 ]
 
 
