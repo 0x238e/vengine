@@ -12,7 +12,7 @@ channel_layer = get_channel_layer()
 def mockEventList(request):
   res = HttpResponse()
   res['Content-Type'] = 'application/json'
-  res['Access-Control-Allow-Origin'] = 'http://127.0.0.1:8081' #'http://v.noinfinity.top'
+  res['Access-Control-Allow-Origin'] = 'http://v.noinfinity.top'
   res.content = '''
 [
   {
